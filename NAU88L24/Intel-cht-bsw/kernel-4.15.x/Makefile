@@ -15,4 +15,4 @@ ucm:
 	cp -R ./chtnau8824 /usr/share/alsa/ucm/
 
 clean:
-	rm -f *.ko *.o *.mod.* *.xz
+	$(MAKE) -C $(KDIR) M=$$PWD clean
