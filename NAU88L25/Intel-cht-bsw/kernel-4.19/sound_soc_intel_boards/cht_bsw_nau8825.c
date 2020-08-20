@@ -76,7 +76,7 @@ static int platform_clock_control(struct snd_soc_dapm_widget *w,
 }
 
 static const struct snd_soc_dapm_widget cht_dapm_widgets[] = {
-	SND_SOC_DAPM_HP("Headphone Jack", NULL),
+	SND_SOC_DAPM_HP("Headphone", NULL),
 	SND_SOC_DAPM_MIC("Headset Mic", NULL),
 	SND_SOC_DAPM_SUPPLY("Platform Clock", SND_SOC_NOPM, 0, 0,
 		platform_clock_control, SND_SOC_DAPM_PRE_PMU |
@@ -84,8 +84,8 @@ static const struct snd_soc_dapm_widget cht_dapm_widgets[] = {
 };
 
 static const struct snd_soc_dapm_route cht_audio_map[] = {
-	{ "Headphone Jack", NULL, "HPOL" },
-	{ "Headphone Jack", NULL, "HPOR" },
+	{ "Headphone", NULL, "HPOL" },
+	{ "Headphone", NULL, "HPOR" },
 	{ "MIC", NULL, "Headset Mic" },
 	{ "Playback", NULL, "ssp2 Tx" },
 	{ "ssp2 Tx", NULL, "codec_out0" },
@@ -94,12 +94,12 @@ static const struct snd_soc_dapm_route cht_audio_map[] = {
 	{ "codec_in1", NULL, "ssp2 Rx" },
 	{ "ssp2 Rx", NULL, "Capture" },
 
-	{ "Headphone Jack", NULL, "Platform Clock" },
+	{ "Headphone", NULL, "Platform Clock" },
 	{ "Headset Mic", NULL, "Platform Clock" },
 };
 
 static const struct snd_kcontrol_new cht_mc_controls[] = {
-	SOC_DAPM_PIN_SWITCH("Headphone Jack"),
+	SOC_DAPM_PIN_SWITCH("Headphone"),
 	SOC_DAPM_PIN_SWITCH("Headset Mic"),
 };
 
